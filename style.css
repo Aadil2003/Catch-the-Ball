@@ -1,0 +1,125 @@
+body{margin: 0px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+#box{
+background-image: url(bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 70vh;
+    background-color:#505050 ;
+    border: 2px solid black;
+    border-radius: 5px;
+    position: relative;
+}
+#circle{
+    background-color: red;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    position: absolute;
+    cursor: pointer;
+    transition: 200ms;
+    bottom: 40px;
+    left: 5px;
+
+}
+#score{
+    margin-top: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 2.5rem;
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+#reset{
+    /* margin-top: 10px; */
+    width: 80px;
+    padding: 10px;
+    background-color: rgb(175, 208, 243);
+    transition: background-color 0.3s ease;
+    border: 2px solid white;
+    border-radius: 50px;
+    cursor: pointer;
+}
+#reset:hover{
+    background-color: rgb(126, 185, 244);
+}
+#pro{
+   margin-left: 15px;
+   margin-right: 15px;
+    /* margin-top: 10px; */
+    width: 100px;
+    padding: 10px;
+    border: 2px solid white;
+    background-color: rgb(175, 208, 243);
+    transition: background-color 0.3s ease;
+    border-radius: 50px;
+    cursor: pointer;
+}
+#pro:hover{
+    background-color: rgb(126, 185, 244);
+}
+#Normal-Mode{
+   
+    /* margin-top: 20px; */
+    width: 150px;
+    padding: 10px;
+    background-color: rgb(175, 208, 243);
+    transition: background-color 0.3s ease;
+    border: 2px solid white;
+    border-radius: 50px;
+    cursor: pointer;
+}
+#Normal-Mode:hover{
+    background-color: rgb(126, 185, 244);
+}
+@media (width<=400px)  {
+    #box{
+        background-image: url(bg.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 100vw;
+            height: 50vh;
+            background-color:#505050 ;
+            border: 2px solid black;
+            border-radius: 5px;
+            position: relative;
+        }
+    #list{
+        display: flex;
+        flex-direction: column;
+       align-items: center;
+
+     
+        
+        
+    }
+    #pro{
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+        
+}
+#list{
+   padding-right: 30px;
+   padding-bottom: 20px;
+   padding-top: 20px;
+    border: 2px solid rgb(237, 54, 54);
+    border-radius: 60px;
+    background-color: black;
+}
+#bg{
+background-color: rgb(191, 247, 240);
+}
