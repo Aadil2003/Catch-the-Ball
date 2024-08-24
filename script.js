@@ -114,8 +114,8 @@ btn.addEventListener("click", () => {
     scoree = 0;
     circle.style.top = "420px";
     circle.style.left = "5px";
-    circle.style.width = "50px"; 
-    circle.style.height = "50px"; 
+    circle.style.width = "80px"; 
+    circle.style.height = "80px"; 
 });
 
 function playClickSound() {
