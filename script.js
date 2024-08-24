@@ -21,7 +21,7 @@ function move() {
 
 function normalMode() {
     scoree++;
-    speed = Math.max(300, speed - 50);
+    speed = Math.max(300, speed - 10);
     score.textContent = scoree;
 
     clearInterval(moveInterval);
