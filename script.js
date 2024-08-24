@@ -1,6 +1,7 @@
 const circle = document.querySelector("#circle");
 const box = document.querySelector("#box");
 const score = document.querySelector("#score");
+const highScoreDisplay = document.querySelector("#highScore"); 
 const btn = document.querySelector("#reset");
 const clickSound = document.getElementById('clickSound');
 
@@ -8,6 +9,10 @@ let scoree = 0;
 let speed = 1000;
 let moveInterval;
 let debounce = false;
+
+
+let highScore = localStorage.getItem('highScore') || 0;
+highScoreDisplay.textContent = highScore; 
 
 function move() {
     let maxX = box.clientWidth - circle.clientWidth;
@@ -19,10 +24,30 @@ function move() {
     circle.style.top = `${randomY}px`;
 }
 
-function normalMode() {
+function updateHighScore() {
+    if (scoree > highScore) {
+        highScore = scoree;
+        localStorage.setItem('highScore', highScore); 
+        highScoreDisplay.textContent = highScore; 
+    }
+}
+
+function beginnerMode() {
     scoree++;
     speed = Math.max(300, speed - 10);
     score.textContent = scoree;
+    updateHighScore();
+
+    clearInterval(moveInterval);
+    move();
+    moveInterval = setInterval(move, speed);
+}
+
+function normalMode() {
+    scoree++;
+    speed = Math.max(300, speed - 50);
+    score.textContent = scoree;
+    updateHighScore();
 
     clearInterval(moveInterval);
     move();
@@ -31,9 +56,19 @@ function normalMode() {
 
 function proMode() {
     scoree++;
-    speed = Math.max(300, speed - 200);
+    speed = Math.max(300, speed - 100);
     score.textContent = scoree;
-    
+    updateHighScore();
+
+    let currentWidth = circle.clientWidth;
+    let currentHeight = circle.clientHeight;
+
+    let newWidth = Math.max(20, currentWidth * 0.9);
+    let newHeight = Math.max(20, currentHeight * 0.9);
+
+    circle.style.width = `${newWidth}px`;
+    circle.style.height = `${newHeight}px`;
+
     clearInterval(moveInterval);
     move();
     moveInterval = setInterval(move, speed);
@@ -47,12 +82,13 @@ function runModeFunction() {
             proMode();
         } else if (value === "normal") {
             normalMode();
+        } else if (value === "beginner") {
+            beginnerMode();
         }
     } else {
         window.alert("Choose a mode to continue");
     }
 }
-
 
 circle.addEventListener("click", function() {
     if (!debounce) {
@@ -78,8 +114,9 @@ btn.addEventListener("click", () => {
     scoree = 0;
     circle.style.top = "420px";
     circle.style.left = "5px";
+    circle.style.width = "50px"; 
+    circle.style.height = "50px"; 
 });
-
 
 function playClickSound() {
     if (clickSound) {
